@@ -54,6 +54,20 @@ under the License.
         <security https="true" auth="true"/>
         <response name="success" type="view" value="FindParty"/>
     </request-map>
+
+    <request-map uri="createPartyByGroovyEngine">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="FindParty"/>
+    </request-map>
+
+    <request-map uri="createPartyDemoEvent">
+        <security https="true" auth="true"/>
+        <event type="java" path="com.company.ofbizdemo.events.PartyDemoEvents" invoke="createPartyDemoEvent"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+
+
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#main"/>
     <view-map name="FindParty" type="screen" page="component://ofbizdemo/widget/OfbizdemoScreens.xml#FindParty"/>

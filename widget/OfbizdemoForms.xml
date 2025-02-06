@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://ofbiz.apache.org/Widget-Form"
        xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
-  <form name="createParty" type="single" target="createParty">
+  <form name="createParty" type="single" target="createPartyDemoEvent" >
     <auto-fields-service service-name="createParty"/>
     <field name="submitButton" title="${uiLabelMap.CommonAdd}">
       <submit button-type="button"/>
@@ -30,9 +30,10 @@ under the License.
 
 
   <form name="FindParty" type="single" target="findParty">
-    <field name="partyId" title="${lLabels.PartyId}"><text-find/></field>
-    <field name="partyName" title="${lLabels.PartyName}"><text-find/></field>
-    <field name="searchButton" title="${lLabels.CommonFind}" widget-style="smallSubmit"><submit
+    <actions><property-map resource="OfbizdemoUiLabels" map-name="lLables" global="true"/></actions>
+    <field name="partyId" title="${lLables.PartyId}"><text-find/></field>
+    <field name="partyName" title="${lLables.PartyName}"><text-find/></field>
+    <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit
         button-type="button"
         image-location="/images/icons/magnifier.png"/>
     </field>
@@ -41,6 +42,7 @@ under the License.
 
   <form name="ListOfParty" type="list" list-name="listIt" default-entity-name="DemoParty" separate-columns="true">
     <actions>
+      <property-map resource="OfbizdemoUiLabels" map-name="lLables" global="true"/>
       <!-- Preparing search results for user query by using OFBiz stock service to perform find operations on a single entity or view entity -->
       <service service-name="performFind" result-map="result" result-map-list="listIt">
         <field-map field-name="inputFields" from-field="ofbizdemoCtx"/>
@@ -48,7 +50,7 @@ under the License.
         <field-map field-name="orderBy" from-field="parameters.sortField"/>
       </service>
     </actions>
-    <field name="partyId" title="${lLabels.PartyId}" sort-field="true"><display/></field>
-    <field name="partyName" title="${uiLabelMap.PartyName}"><display/></field>
+    <field name="partyId" title="${lLables.PartyId}" sort-field="true"><display/></field>
+    <field name="partyName" title="${lLables.PartyName}"><display/></field>
   </form>
 </forms>

@@ -36,6 +36,21 @@ under the License.
              location="com.company.ofbizdemo.services.PartyServices" invoke="createParty"
              default-entity-name="DemoParty"
              engine="java"
+             >
+        <auto-attributes include="pk" mode="OUT"/>
+        <auto-attributes include="nonpk" mode="IN"/>
+    </service>
+
+
+<!--    Service dispatcher threw an exception:Error running Groovy method [createParty] in Groovy file
+[component://ofbizdemo/groovyScripts/PartyServices/partyService.groovy]:
+(startup failed:<br/>component://ofbizdemo/groovyScripts/PartyServices/partyService.groovy: 12:
+unable to resolve class GenericEntityException <br/> @ line 12, column 3.<br/> catch (GenericEntityException e) {<br/> ^<br/><br/>1 error<br/>)-->
+
+    <service name="createPartyByGroovyEngine"
+             location="component://ofbizdemo/groovyScripts/PartyServices/partyService.groovy" invoke="createParty"
+             default-entity-name="DemoParty"
+             engine="groovy"
              auth="true">
         <auto-attributes include="pk" mode="OUT"/>
         <auto-attributes include="nonpk" mode="IN"/>
