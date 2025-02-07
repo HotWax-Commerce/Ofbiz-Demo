@@ -43,4 +43,8 @@ under the License.
     <property key="PartyId">
         <value xml:lang="en">Party Id</value>
     </property>
+
+    <property key="PartyDemoAddPartyDemoFtl">
+        <value xml:lang="en">Party Id</value>
+    </property>
 </resource>

@@ -35,8 +35,7 @@ under the License.
     <service name="createPartyByJavaEngine"
              location="com.company.ofbizdemo.services.PartyServices" invoke="createParty"
              default-entity-name="DemoParty"
-             engine="java"
-             >
+             engine="java">
         <auto-attributes include="pk" mode="OUT"/>
         <auto-attributes include="nonpk" mode="IN"/>
     </service>
